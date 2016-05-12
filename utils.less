@@ -1,0 +1,89 @@
+//------------------------------------------------------------------------------------
+// CLEARFIX
+//------------------------------------------------------------------------------------
+
+.clearfix {
+	&:after {
+		content: "";
+		display: table;
+		width: 0px;
+		clear: both;
+	}
+}
+
+//------------------------------------------------------------------------------------
+// REVEAL NONE
+//------------------------------------------------------------------------------------
+
+@keyframes noneToBlock {
+	0% {
+		display: none;
+		opacity: 0;
+	}
+
+	1% {
+		display: block;
+		opacity: 0;
+	}
+
+	100% {
+		display: block;
+		opacity: 1;
+	}
+}
+
+//------------------------------------------------------------------------------------
+// HIDDEN DOWN
+//------------------------------------------------------------------------------------
+
+.hidden-xs {
+	@media @b_xs {
+		display: none !important;
+	}
+}
+
+.hidden-sm {
+	@media @b_sm_max {
+		display: none !important;
+	}
+}
+
+.hidden-md {
+	@media @b_md_max {
+		display: none !important;
+	}
+}
+
+.hidden-lg {
+	@media @b_lg_max {
+		display: none !important;
+	}
+}
+
+//------------------------------------------------------------------------------------
+// HIDDEN UP
+//------------------------------------------------------------------------------------
+
+.hidden-sm-up {
+	@media @b_sm {
+		display: none !important;
+	}
+}
+
+.hidden-md-up {
+	@media @b_md {
+		display: none !important;
+	}
+}
+
+.hidden-lg-up {
+	@media @b_lg {
+		display: none !important;
+	}
+}
+
+.hidden-xl-up {
+	@media @b_xl {
+		display: none !important;
+	}
+}

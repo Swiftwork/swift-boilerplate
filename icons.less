@@ -1,5 +1,5 @@
 // Default Variables
-@simple-line-font-path			: "fonts/";
+@simple-line-font-path			: "font/";
 @simple-line-font-family		: "simple-line-icons";
 @simple-line-icon-prefix		: icon-;
 
@@ -205,7 +205,7 @@
 	&social-stumbleupon,
 	&social-youtube,
 	&social-dropbox {
-		&:before {
+		&::before, &::after {
 			font-family: '@{simple-line-font-family}';
 			speak: none;
 			font-style: normal;

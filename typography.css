@@ -10,8 +10,8 @@
 
 .s-text {
 	font-family: 'Lato', 'Microsoft Yahei', '微软雅黑', 'Hiragino Sans GB W3', 'STXihei', '华文细黑', 'SimHei', '黑体', 'Helvetica Neue', 'Verdana' sans-serif;
-	font-size: @d_fs;
-	line-height: @d_vr;
+	font-size: $d_fs;
+	line-height: $d_vr;
 	font-weight: 300;
 }
 
@@ -26,14 +26,14 @@ html {
 
 body {
 	.s-text;
-	font-size: unit(@d_fs, em); // Chrome bug not respecting rem in body
-	line-height: (unit(@d_vr, em) / @d_fs); // Chrome bug not respecting rem in body
-	color: @c_dark_secondary;
+	font-size: unit($d_fs, em); // Chrome bug not respecting rem in body
+	line-height: (unit($d_vr, em) / $d_fs); // Chrome bug not respecting rem in body
+	color: $c_dark_secondary;
 }
 
 h1, h2, h3, h4, h5, h6, th {
 	.s-headline;
-	color: @c_dark_primary;
+	color: $c_dark_primary;
 }
 
 h1 { font-size: 4.8rem; }
@@ -49,14 +49,14 @@ h6 { font-size: 1.8rem; }
 
 h1, h2, h3, h4, h5, h6, p, span, a, i, em, li, th, td, label, legend {
 	&.primary {
-		color: @c_color_primary !important;
+		color: $c_color_primary !important;
 	}
 
 	&.secondary {
-		color: @c_color_secondary !important;
+		color: $c_color_secondary !important;
 	}
 
 	&.dark {
-		color: @c_dark_primary !important;
+		color: $c_dark_primary !important;
 	}
 }

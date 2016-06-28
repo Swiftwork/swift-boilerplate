@@ -12,13 +12,13 @@
 
 h1, h2, h3, h4, h5, h6, p, figure, ol, ul, dl, table, form, menu, blockquote, pre {
 	margin: 0;
-	margin-bottom: @d_vr;
+	margin-bottom: 1vr;
 	padding: 0;
-	line-height: @d_vr;
+	line-height: 1vr;
 }
 
 h1, h2, h3 {
-	line-height: (@d_vr * 2);
+	line-height: 2vr;
 }
 
 /* Lists */
@@ -27,7 +27,7 @@ ol, ul, dl {
 	padding-left: 0;
 
 	ol, ul, dl {
-		margin-left: @d_vr;
+		margin-left: 1vr;
 		margin-bottom: 0;
 		font-size: 1.4rem;
 	}
@@ -42,7 +42,7 @@ ol {
 }
 
 dd {
-	margin-left: @d_vr;
+	margin-left: 1vr;
 }
 
 /* Tables */
@@ -52,9 +52,9 @@ th {
 }
 
 th, td {
-	padding: (@d_vr / 2);
+	padding: 0.5vr;
 	text-align: left;
-	border-bottom: 1px solid @c_color_primary;
+	border-bottom: 1px solid $c_color_primary;
 
 	&:first-child {
 		padding-left: 0;
@@ -74,43 +74,43 @@ tfoot {
 /* Forms */
 
 fieldset {
-	padding: @d_vr;
-	border: 1px solid @c_color_primary;
+	padding: 1vr;
+	border: 1px solid $c_color_primary;
 
 	legend {
-		margin-left: (@d_vr / -2);
-		padding: 0 (@d_vr / 2);
+		margin-left: -0.5vr;
+		padding: 0 0.5vr;
 	}
 }
 
 hr {
-	margin: @d_vr 0 @d_vr;
+	margin: 1vr 0 1vr;
 	border: none;
-	border-top: 1px solid @c_color_primary;
+	border-top: 1px solid $c_color_primary;
 }
 
 /* Quotes and Code */
 
 blockquote {
-	margin-left: @d_vr;
-	padding-left: @d_vr;
-	border-left: 1px solid @c_color_primary;
+	margin-left: 1vr;
+	padding-left: 1vr;
+	border-left: 1px solid $c_color_primary;
 }
 
 pre {
 	display: block;
-	padding: (@d_vr / 2);
+	padding: 0.5vr;
 	white-space: pre;
-	border: 1px solid @c_color_primary;
-	background: @c_light_secondary;
+	border: 1px solid $c_color_primary;
+	background: $c_light_secondary;
 }
 
 code {
 	margin: 0 .2em;
 	padding: .2em .5em;
 	font-size: 1.4rem;
-	border: 1px solid @c_color_primary;
-	background: @c_light_secondary;
+	border: 1px solid $c_color_primary;
+	background: $c_light_secondary;
 }
 
 pre > code {

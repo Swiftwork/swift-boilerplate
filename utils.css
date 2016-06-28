@@ -37,25 +37,25 @@
 //------------------------------------------------------------------------------------
 
 .hidden-xs {
-	@media @b_xs {
+	@media $b_xs {
 		display: none !important;
 	}
 }
 
 .hidden-sm {
-	@media @b_sm_max {
+	@media $b_sm_max {
 		display: none !important;
 	}
 }
 
 .hidden-md {
-	@media @b_md_max {
+	@media $b_md_max {
 		display: none !important;
 	}
 }
 
 .hidden-lg {
-	@media @b_lg_max {
+	@media $b_lg_max {
 		display: none !important;
 	}
 }
@@ -65,25 +65,25 @@
 //------------------------------------------------------------------------------------
 
 .hidden-sm-up {
-	@media @b_sm {
+	@media $b_sm {
 		display: none !important;
 	}
 }
 
 .hidden-md-up {
-	@media @b_md {
+	@media $b_md {
 		display: none !important;
 	}
 }
 
 .hidden-lg-up {
-	@media @b_lg {
+	@media $b_lg {
 		display: none !important;
 	}
 }
 
 .hidden-xl-up {
-	@media @b_xl {
+	@media $b_xl {
 		display: none !important;
 	}
 }

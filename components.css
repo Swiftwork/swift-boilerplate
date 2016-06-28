@@ -8,11 +8,11 @@
 	width: 100%;
 	max-width: 1200px;
 	margin: 0 auto;
-	padding: 0 (@d_vr / 2);
+	padding: 0 0.5vr;
 	box-sizing: border-box;
 
-	@media @b_sm {
-		padding: 0 @d_vr;
+	@media $b_sm {
+		padding: 0 1vr;
 	}
 
 	&.fluid {
@@ -34,17 +34,17 @@
 
 .grid {
 	.clearfix;
-	margin: 0 (@d_vr / -2);
-	padding: 0 (@d_vr / 2);
+	margin: 0 -0.5vr;
+	padding: 0 0.5vr;
 
-	@media @b_sm {
-		margin: 0 -@d_vr;
+	@media $b_sm {
+		margin: 0 -1vr;
 	}
 
 	> * {
 		position: relative;
-		margin: 0 (@d_vr / 2) @d_vr;
-		width: calc(100% - @d_vr);
+		margin: 0 0.5vr 1vr;
+		width: calc(100% - 1vr);
 		min-height: 1px;
 		float: left;
 		box-sizing: border-box;
@@ -56,36 +56,36 @@
 	}
 
 	/* CALCULATIONS */
-	.columns(@i, @device: "") when (@i > 0) {
-		@selector: ~"data-columns@{device}";
-		&[@{selector}="@{i}"] > * {
-			width: calc(100% / @i - @d_vr);
-			flex: 1 1 calc(100% / @i - @d_vr);
+	.columns($i, $device: "") when ($i > 0) {
+		$selector: ~"data-columns$(device)";
+		&[$(selector)="$(i)"] > * {
+			width: calc(100% / $i - 1vr);
+			flex: 1 1 calc(100% / $i - 1vr);
 		}
-		.columns((@i - 1), @device);
+		.columns(($i - 1), $device);
 	}
 
 	/* ALL DEVICES */
-	.columns(@g_columns);
+	.columns($g_columns);
 
 	/* PHABLETS AND UP */
-	@media @b_sm {
-		.columns(@g_columns, -sm);
+	@media $b_sm {
+		.columns($g_columns, -sm);
 	}
 
 	/* TABLETS AND UP */
-	@media @b_md {
-		.columns(@g_columns, -md);
+	@media $b_md {
+		.columns($g_columns, -md);
 	}
 
 	/* LAPTOPS AND UP */
-	@media @b_lg {
-		.columns(@g_columns, -lg);
+	@media $b_lg {
+		.columns($g_columns, -lg);
 	}
 
 	/* DESKTOPS AND UP */
-	@media @b_xl {
-		.columns(@g_columns, -xl);
+	@media $b_xl {
+		.columns($g_columns, -xl);
 	}
 }
 
@@ -94,13 +94,13 @@
 //------------------------------------------------------------------------------------
 
 a {
-	color: @c_color_primary;
+	color: $c_color_primary;
 	text-decoration: none;
 	cursor: pointer;
 	transition: all 200ms;
 
 	&:hover {
-		color: @c_dark_primary;
+		color: $c_dark_primary;
 	}
 }
 
@@ -110,14 +110,14 @@ a {
 
 .input, input[type=text], input[type=email], input[type=tel], input[type=url], input[type=password], input[type=number], input[type=search], select, textarea {
 	appearance: none;
-	padding: (@d_vr / 4);
+	padding: 0.25vr;
 	height: auto;
 
 	outline: none;
 	border: none;
-	background: @c_light_primary;
+	background: $c_light_primary;
 
-	color: @c_color_primary;
+	color: $c_color_primary;
 
 	border-radius: 0;
 	box-sizing: border-box;
@@ -131,7 +131,7 @@ a {
 	}
 
 	&.ghost {
-		border-bottom: 1px solid @c_dark_primary;
+		border-bottom: 1px solid $c_dark_primary;
 		background: none;
 		box-shadow: none;
 
@@ -141,28 +141,28 @@ a {
 
 		&:focus::placeholder {
 			visibility: visible !important;
-			color: @c_color_secondary;
+			color: $c_color_secondary;
 			font-size: 0.875em;
 			transform: translateY(-1.3em);
 		}
 	}
 
 	&.light {
-		color: @c_light_primary;
-		border-color: @c_light_primary;
+		color: $c_light_primary;
+		border-color: $c_light_primary;
 
 		&::placeholder {
-			color: @c_light_primary;
+			color: $c_light_primary;
 		}
 	}
 }
 
 select {
-	padding-right: @d_vr;
+	padding-right: 1vr;
 	background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/PjxzdmcgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHg9IjBweCIgeT0iMHB4IiB2aWV3Qm94PSIwIDAgNjQgNjQiPjxnIHN0eWxlPSJvcGFjaXR5OjAuNTsiPjxwYXRoIGQ9Ik0wLjE2LDE2LjE0YzAuMS0wLjI3LDAuMjYtMC41MiwwLjQ3LTAuNzNjMC40Mi0wLjM4LDAuOTMtMC41NywxLjUyLTAuNTdjMC41OSwwLDEuMDksMC4xOSwxLjUyLDAuNTdsMjguNTYsMjguNTZsMjguMTEtMjguMTFjMC40Mi0wLjQyLDAuOTMtMC42MywxLjUyLTAuNjNjMC41OSwwLDEuMDksMC4yMSwxLjUyLDAuNjNjMC40MiwwLjQyLDAuNjMsMC45MywwLjYzLDEuNTJjMCwwLjU5LTAuMjEsMS4xLTAuNjMsMS41MkwzMy43NCw0OC41MmMtMC40MiwwLjQyLTAuOTMsMC42My0xLjUyLDAuNjNjLTAuNTksMC0xLjEtMC4yMS0xLjUyLTAuNjNMMC42MywxOC41MWMtMC4yMS0wLjIxLTAuMzctMC40NS0wLjQ3LTAuNzNDMC4wNSwxNy41MSwwLDE3LjIzLDAsMTYuOTNDMCwxNi42OCwwLjA1LDE2LjQyLDAuMTYsMTYuMTR6Ii8+PC9nPjwvc3ZnPg==);
 	background-size: 0.8em;
 	background-repeat: no-repeat;
-	background-position: right (@d_vr / 4) center;
+	background-position: right 0.25vr center;
 }
 
 //------------------------------------------------------------------------------------
@@ -175,7 +175,7 @@ select {
 	height: auto;
 
 	font-size: 0.875em;
-	color: @c_color_primary;
+	color: $c_color_primary;
 	line-height: 1;
 	font-weight: bold;
 	letter-spacing: .1rem;
@@ -185,7 +185,7 @@ select {
 
 	outline: none;
 	border: none;
-	background: @c_light_primary;
+	background: $c_light_primary;
 	border-radius: 0;
 	transition: all 100ms;
 	box-shadow: 0 4px 0 rgba(0, 0, 0, 0.1);
@@ -198,18 +198,18 @@ select {
 	/* COLORS */
 
 	&.primary {
-		color: @c_light_primary !important;
-		background: @c_color_primary;
+		color: $c_light_primary !important;
+		background: $c_color_primary;
 	}
 
 	&.dark {
-		color: @c_light_primary !important;
-		background: @c_dark_primary;
+		color: $c_light_primary !important;
+		background: $c_dark_primary;
 	}
 
 	&.ghost {
-		color: @c_dark_primary;
-		border: 2px solid @c_dark_primary;
+		color: $c_dark_primary;
+		border: 2px solid $c_dark_primary;
 		background: none;
 		box-shadow: none;
 		transform: translateY(0);
@@ -217,8 +217,8 @@ select {
 		/* COLORS */
 
 		&.light {
-			color: @c_light_primary;
-			border-color: @c_light_primary;
+			color: $c_light_primary;
+			border-color: $c_light_primary;
 		}
 	}
 }
@@ -247,15 +247,15 @@ input[type=checkbox] {
 			height: 1em;
     	line-height: 1em;
     	text-align: center;
-			color: @c_light_primary;
+			color: $c_light_primary;
 			outline: 2px solid rgba(0, 0, 0, 0.2);
-			background-color: @c_light_primary;
+			background-color: $c_light_primary;
 			transition: color 200ms;
 		}
 	}
 
 	&:checked + label:before {
-		color: @c_dark_primary;
+		color: $c_dark_primary;
 	}
 }
 
@@ -283,8 +283,8 @@ input[type=radio] {
 			font-size: 0.5em;
 			line-height: 200%;
     	text-align: center;
-			color: @c_light_primary;
-			background-color: @c_light_primary;
+			color: $c_light_primary;
+			background-color: $c_light_primary;
 
 			border-radius: 50%;
 			box-shadow: 0 0 0 2px rgba(0,0,0,0.2);
@@ -293,7 +293,7 @@ input[type=radio] {
 	}
 
 	&:checked + label:before {
-		color: @c_dark_primary;
+		color: $c_dark_primary;
 	}
 }
 
@@ -315,7 +315,7 @@ input[type=radio] {
 
 	.icon, .button, button, input[type=button], input[type=reset], input[type=submit] {
 		display: table-cell;
-		padding: 0 (@d_vr / 4);
+		padding: 0 0.25vr;
 		width: 1%;
 		vertical-align: middle;
 
@@ -344,27 +344,27 @@ input[type=radio] {
 		top: 100%;
 		left: 0;
 		margin: 0;
-		padding: (@d_vr / 4) 0;
+		padding: 0.25vr 0;
 		width: 100%;
 		list-style: none;
 		text-align: left;
-		z-index: @z_popup;
+		z-index: $z_popup;
 		border: 1px solid rgba(0,0,0,0.2);
-		background-color: @c_light_primary;
+		background-color: $c_light_primary;
 		box-shadow: 0 1px 1px rgba(0,0,0,0.1);
 
 		> a {
 			.s-headline;
 			display: block;
-			padding: 0 (@d_vr / 2);
-			color: @c_dark_primary;
+			padding: 0 0.5vr;
+			color: $c_dark_primary;
 			white-space: nowrap;
 			overflow: hidden;
 			text-overflow: ellipsis;
 		}
 
 		> a.active, > a:hover {
-			color: @c_color_primary;
+			color: $c_color_primary;
 		}
 		
 		> hr {
@@ -390,12 +390,12 @@ input[type=radio] {
 		.s-headline;
 		position: relative;
 		display: table-cell;
-		padding: 0 (@d_vr / 2) @d_vr;
+		padding: 0 0.5vr 1vr;
 		width: (100% / 3);
 		text-align: center;
 
-		@media @b_md {
-			padding: 0 @d_vr @d_vr;
+		@media $b_md {
+			padding: 0 1vr 1vr;
 		}
 
 		&:not(:first-child):before {
@@ -406,7 +406,7 @@ input[type=radio] {
 			bottom: 1rem;
 			width: 100%;
 			height: 0.4rem;
-			background-color: darken(@c_light_primary, 20%);
+			background-color: darken($c_light_primary, 20%);
 		}
 
 		&:after {
@@ -418,20 +418,20 @@ input[type=radio] {
 			margin-left: -0.5rem;
 			width: 1rem;
 			height: 1rem;
-			background-color: darken(@c_light_primary, 20%);
+			background-color: darken($c_light_primary, 20%);
 			border-radius: 50%;
 			z-index: 1;
-			transition: box-shadow @t_animation;
+			transition: box-shadow $t_animation;
 		}
 
 		&.past {
 			&:before, &:after {
-				background-color: @c_dark_primary;
+				background-color: $c_dark_primary;
 			}
 
 			&:hover {
 				&:after {
-					box-shadow: 0 0 0 0.5rem fade(@c_dark_primary, 30%)
+					box-shadow: 0 0 0 0.5rem fade($c_dark_primary, 30%)
 				}
 			}
 		}
@@ -453,7 +453,7 @@ input[type=radio] {
 		bottom: -7px;
 		right: 50%;
 		margin-right: -5px;
-		z-index: (@z_popup + 1);
+		z-index: ($z_popup + 1);
 		border-left: 5px solid transparent;
 		border-right: 5px solid transparent;
 		border-bottom: 7px solid rgba(0,0,0,0.2);
@@ -465,22 +465,22 @@ input[type=radio] {
 		bottom: -8px;
 		right: 50%;
 		margin-right: -4px;
-		z-index: (@z_popup + 2);
+		z-index: ($z_popup + 2);
 		border-left: 4px solid transparent;
 		border-right: 4px solid transparent;
-		border-bottom: 6px solid @c_light_primary;
+		border-bottom: 6px solid $c_light_primary;
 	}
 
 	> nav {
 		position: absolute;
 		right: 0;
 		margin-top: 7px;
-		padding: (@d_vr / 4) 0;
+		padding: 0.25vr 0;
 		cursor: default;
-		z-index: @z_popup;
+		z-index: $z_popup;
 		text-align: left;
 		border: 1px solid rgba(0,0,0,0.2);
-		background-color: @c_light_primary;
+		background-color: $c_light_primary;
 		box-shadow: 0 1px 1px rgba(0,0,0,0.1);
 
 		section {
@@ -488,19 +488,19 @@ input[type=radio] {
 		}
 
 		> a {
-			padding: 0 (@d_vr / 2);
+			padding: 0 0.5vr;
 		}
 
 		> a, section > a {
 			.s-headline;
 			display: block;
-			color: @c_dark_primary;
+			color: $c_dark_primary;
 			white-space: nowrap;
 			overflow: hidden;
 			text-overflow: ellipsis;
 
 			&.active, &:hover {
-				color: @c_color_primary;
+				color: $c_color_primary;
 			}
 		}
 
@@ -541,7 +541,7 @@ input[type=radio] {
 			&:after {
 				top: auto;
 				bottom: -6px;
-				border-top: 6px solid @c_light_primary;
+				border-top: 6px solid $c_light_primary;
 				border-bottom: none;
 			}
 		}
@@ -553,7 +553,7 @@ input[type=radio] {
 //------------------------------------------------------------------------------------
 
 .card {
-	background: @c_light_primary;
+	background: $c_light_primary;
 	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
 
@@ -574,7 +574,7 @@ input[type=radio] {
 		vertical-align: top;
 	}
 
-	@media @b_md {
+	@media $b_md {
 		display: table;
 
 		.main, .sub {
@@ -598,7 +598,7 @@ input[type=radio] {
 
 .carousel {
 	position: relative;
-	margin-bottom: @d_vr; 
+	margin-bottom: 1vr; 
 	min-height: 320px;
 	overflow: hidden;
 
@@ -610,7 +610,7 @@ input[type=radio] {
 		background-position: center;
 		background-repeat: no-repeat;
 		transform: translate3d(-100%, 0, 0);
-		transition: transform (@t_animation * 2) ease-in-out;
+		transition: transform ($t_animation * 2) ease-in-out;
 
 		&.current {
 			transform: translate3d(0, 0, 0); // Current Page
@@ -625,10 +625,10 @@ input[type=radio] {
 	.prev, .next {
 		position: absolute;
 		top: 50%;
-		margin-top: -@d_vr;
-		padding: (@d_vr / 2);
-		font-size: @d_vr;
-		color: @c_light_primary;
+		margin-top: -1vr;
+		padding: 0.5vr;
+		font-size: 1vr;
+		color: $c_light_primary;
 		z-index: 2;
 
 		&.prev {
@@ -644,26 +644,26 @@ input[type=radio] {
 		position: absolute;
 		bottom: 0;
 		width: 100%;
-		height: (@d_vr * 2);
-		line-height: (@d_vr * 2);
+		height: 2vr;
+		line-height: 2vr;
 		text-align: center;
 		z-index: 2;
 		background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5));
-		transition: all (@t_animation * 2);
+		transition: all ($t_animation * 2);
 
 		i, a {
 			display: inline-block;
-			margin: 0 (@d_vr / 4);
+			margin: 0 0.25vr;
 			width: 1.6rem;
 			height: 1.6rem;
 			vertical-align: middle;
-			background-color: fade(@c_light_primary, 50%);
+			background-color: fade($c_light_primary, 50%);
 			border-radius: 50%;
 
 			&.current {
 				width: 2rem;
 				height: 2rem;
-				background-color: @c_light_primary;
+				background-color: $c_light_primary;
 			}
 		}
 	}
@@ -692,10 +692,10 @@ input[type=radio] {
 	width: 100%;
 	height: 100%;
 	cursor: zoom-out;
-	z-index: (@z_popup - 1);
+	z-index: ($z_popup - 1);
 	background: rgba(0, 0, 0, 0.8);
 	opacity: 1;
-	transition: opacity @t_animation;
+	transition: opacity $t_animation;
 
 	&.hidden {
 		visibility: hidden;

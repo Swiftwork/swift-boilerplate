@@ -2,7 +2,7 @@
 // CLEARFIX
 //------------------------------------------------------------------------------------
 
-.clearfix {
+@define-mixin clearfix {
 	&:after {
 		content: "";
 		display: table;

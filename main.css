@@ -1,22 +1,22 @@
-/* Reset */
+/* Reset (npm install normalize.css) */
 
-@import 'normalize';
+@import 'normalize.css';
 
 /* Utilities */
 
-@import 'vars';
-@import 'utils';
+@import './vars.css';
+@import './utils.css';
 
 /* Typeography */
 
-@import 'icons';
-@import 'lato';
-@import 'typography';
+@import './icons.css';
+@import './lato.css';
+@import './typography.css';
 
 /* Components */
 
-@import 'components';
+@import './components.css';
 
 /* Main */
 
-@import 'general';
+@import './general.css';

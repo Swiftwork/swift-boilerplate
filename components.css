@@ -3,7 +3,7 @@
 //------------------------------------------------------------------------------------
 
 .container {
-	.clearfix;
+	@mixin clearfix;
 	position: relative;
 	width: 100%;
 	max-width: 1200px;
@@ -33,7 +33,7 @@
 //------------------------------------------------------------------------------------
 
 .grid {
-	.clearfix;
+	@mixin clearfix;
 	margin: 0 -0.5vr;
 	padding: 0 0.5vr;
 
@@ -56,36 +56,36 @@
 	}
 
 	/* CALCULATIONS */
-	.columns($i, $device: "") when ($i > 0) {
-		$selector: ~"data-columns$(device)";
-		&[$(selector)="$(i)"] > * {
-			width: calc(100% / $i - 1vr);
-			flex: 1 1 calc(100% / $i - 1vr);
+	@define-mixin columns $count $device {
+		@for @i from 0 to $count {
+			&[data-columns$(device)="@i"] {
+				width: calc(100% / @i - 1vr);
+				flex: 1 1 calc(100% / @i - 1vr);
+			}	
 		}
-		.columns(($i - 1), $device);
 	}
 
 	/* ALL DEVICES */
-	.columns($g_columns);
+	@mixin columns $g_columns;
 
 	/* PHABLETS AND UP */
 	@media $b_sm {
-		.columns($g_columns, -sm);
+		@mixin columns $g_columns -sm;
 	}
 
 	/* TABLETS AND UP */
 	@media $b_md {
-		.columns($g_columns, -md);
+		@mixin columns $g_columns -md;
 	}
 
 	/* LAPTOPS AND UP */
 	@media $b_lg {
-		.columns($g_columns, -lg);
+		@mixin columns $g_columns -lg;
 	}
 
 	/* DESKTOPS AND UP */
 	@media $b_xl {
-		.columns($g_columns, -xl);
+		@mixin columns $g_columns -xl;
 	}
 }
 
@@ -354,7 +354,7 @@ input[type=radio] {
 		box-shadow: 0 1px 1px rgba(0,0,0,0.1);
 
 		> a {
-			.s-headline;
+			@mixin headline;
 			display: block;
 			padding: 0 0.5vr;
 			color: $c_dark_primary;
@@ -387,7 +387,7 @@ input[type=radio] {
 	display: table;
 
 	a, span, .crumb {
-		.s-headline;
+		@mixin headline;
 		position: relative;
 		display: table-cell;
 		padding: 0 0.5vr 1vr;
@@ -492,7 +492,7 @@ input[type=radio] {
 		}
 
 		> a, section > a {
-			.s-headline;
+			@mixin headline;
 			display: block;
 			color: $c_dark_primary;
 			white-space: nowrap;
@@ -552,17 +552,20 @@ input[type=radio] {
 // CARD
 //------------------------------------------------------------------------------------
 
-.card {
+@define-mixin card {
 	background: $c_light_primary;
 	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.card {
+	@mixin card;
 }
 
 //------------------------------------------------------------------------------------
 // SPLIT CARD
 //------------------------------------------------------------------------------------
-
-.split_card {
-	.card;
+@define-mixin split_card {
+	@mixin card;
 
 	.main, .sub {
 		position: relative;
@@ -592,6 +595,10 @@ input[type=radio] {
 	}
 }
 
+.split_card {
+	@mixin split_card;
+}
+
 //------------------------------------------------------------------------------------
 // CAROUSEL
 //------------------------------------------------------------------------------------
@@ -611,13 +618,13 @@ input[type=radio] {
 		background-repeat: no-repeat;
 		transform: translate3d(-100%, 0, 0);
 		transition: transform ($t_animation * 2) ease-in-out;
-
+		
 		&.current {
-			transform: translate3d(0, 0, 0); // Current Page
+			transform: translate3d(0, 0, 0);
 			z-index: 1;
 
 			& ~ .page {
-				transform: translate3d(100%, 0, 0);  // Pages After
+				transform: translate3d(100%, 0, 0);
 			}
 		}
 	}

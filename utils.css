@@ -15,7 +15,7 @@
 // REVEAL NONE
 //------------------------------------------------------------------------------------
 
-@keyframes noneToBlock {
+@keyframes none-to-block {
 	0% {
 		display: none;
 		opacity: 0;

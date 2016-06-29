@@ -34,33 +34,32 @@ $t_animation: 200ms;
 // DIMENSIONS
 //------------------------------------------------------------------------------------
 
+/* Font */
 $d_fs: 1.6rem;
 $d_vr: 2.8rem;
+
+/* Devices */
+$d_xs: 479px;
+$d_sm: 480px;
+$d_md: 768px;
+$d_lg: 960px;
+$d_xl: 1200px;
+$d_sm_max: calc($d_md - 1px);
+$d_md_max: calc($d_lg - 1px);
+$d_lg_max: calc($d_xl - 1px);
 
 //------------------------------------------------------------------------------------
 // BREAKPOINTS
 //------------------------------------------------------------------------------------
 
-$d_xs: 479px;
 $b_xs: (max-width: $d_xs);
-
-$d_sm: 480px;
-$d_sm_max: calc($d_md - 1);
 $b_sm: (min-width: $d_sm);
-$b_sm_max: (max-width: $d_sm_max);
-
-$d_md: 768px;
-$d_md_max: calc($d_lg - 1);
 $b_md: (min-width: $d_md);
-$b_md_max: (max-width: $d_md_max);
-
-$d_lg: 960px;
-$d_lg_max: calc($d_xl - 1);
 $b_lg: (min-width: $d_lg);
-$b_lg_max: (max-width: $d_lg_max);
-
-$d_xl: 1200px;
 $b_xl: (min-width: $d_xl);
+$b_sm_max: (max-width: $d_sm_max);
+$b_md_max: (max-width: $d_md_max);
+$b_lg_max: (max-width: $d_lg_max);
 
 //------------------------------------------------------------------------------------
 // GRID

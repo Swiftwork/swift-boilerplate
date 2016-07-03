@@ -1,9 +1,9 @@
-// Default Variables
+/* Default Variables */
 $simple-line-font-path		: 'font/';
 $simple-line-font-family	: 'Simple Line Icons';
 $simple-line-icon-prefix	: icon-;
 
-//Fonts
+/*Fonts*/
 @font-face {
 	font-family: '$(simple-line-font-family)';
 	src:	url('$(simple-line-font-path)simple-line-icons.eot?v=2.2.2');

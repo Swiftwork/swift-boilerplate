@@ -1,0 +1,76 @@
+/*------------------------------------------------------------------------------------*/
+/* MIXINS                                                                             */
+/*------------------------------------------------------------------------------------*/
+
+/* FONT STYLES */
+
+@define-mixin headline {
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	font-weight: 300;
+}
+
+@define-mixin text {
+	font-family: 'Lato', 'Microsoft Yahei', '微软雅黑', 'Hiragino Sans GB W3', 'STXihei', '华文细黑', 'SimHei', '黑体', 'Helvetica Neue', 'Verdana' sans-serif;
+	font-weight: 300;
+}
+
+/* CARD STYLES */
+
+@define-mixin card {
+	background: $c_light_primary;
+	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+@define-mixin split_card {
+	@mixin card;
+
+	.main, .sub {
+		position: relative;
+		display: block;
+		width: 100%;
+		background-size: cover;
+		background-position: center;
+		background-repeat: no-repeat;
+		vertical-align: top;
+	}
+
+	@media $b_md {
+		display: table;
+
+		.main, .sub {
+			display: table-cell;
+			height: 100%;
+		}
+
+		.main {
+			width: 60%;
+		}
+
+		.sub {
+			width: 40%;
+		}
+	}
+}
+
+/* CLEARFIX */
+
+@define-mixin clearfix {
+	&:after {
+		content: "";
+		display: table;
+		width: 0px;
+		clear: both;
+	}
+}
+
+/* GRID COLUMNS */
+
+@define-mixin columns $count, $device {
+	@for @i from 1 to $count {
+		&[data-columns$(device)="@i"] {
+			width: calc(100% / @i - 1vr);
+			flex: 1 1 calc(100% / @i - 1vr);
+		}	
+	}
+}

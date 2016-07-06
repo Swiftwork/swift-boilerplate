@@ -1,19 +1,4 @@
 /*------------------------------------------------------------------------------------*/
-/* FONT STYLES                                                                        */
-/*------------------------------------------------------------------------------------*/
-
-@define-mixin headline {
-	letter-spacing: 1px;
-	text-transform: uppercase;
-	font-weight: 300;
-}
-
-@define-mixin text {
-	font-family: 'Lato', 'Microsoft Yahei', '微软雅黑', 'Hiragino Sans GB W3', 'STXihei', '华文细黑', 'SimHei', '黑体', 'Helvetica Neue', 'Verdana' sans-serif;
-	font-weight: 300;
-}
-
-/*------------------------------------------------------------------------------------*/
 /* FONT BASE                                                                          */
 /*------------------------------------------------------------------------------------*/
 
@@ -24,8 +9,8 @@ html {
 
 body {
 	@mixin text;
-	font-size: $d_fs; /* Chrome bug not respecting rem in body */
-	line-height: calc($d_vr / $d_fs); /* Chrome bug not respecting rem in body */
+	font-size: $d_fs;
+	line-height: $d_lh;
 	color: $c_dark_secondary;
 }
 

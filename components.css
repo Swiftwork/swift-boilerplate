@@ -55,16 +55,6 @@
 		flex-flow: row wrap;
 	}
 
-	/* CALCULATIONS */
-	@define-mixin columns $count, $device {
-		@for @i from 1 to $count {
-			&[data-columns$(device)="@i"] {
-				width: calc(100% / @i - 1vr);
-				flex: 1 1 calc(100% / @i - 1vr);
-			}	
-		}
-	}
-
 	/* ALL DEVICES */
 	@mixin columns $g_columns;
 
@@ -391,7 +381,7 @@ input[type=radio] {
 		position: relative;
 		display: table-cell;
 		padding: 0 0.5vr 1vr;
-		width: (100% / 3);
+		width: calc(100% / 3);
 		text-align: center;
 
 		@media $b_md {
@@ -548,51 +538,13 @@ input[type=radio] {
 	}
 }
 
+
 /*------------------------------------------------------------------------------------*/
 /* CARD                                                                               */
 /*------------------------------------------------------------------------------------*/
 
-@define-mixin card {
-	background: $c_light_primary;
-	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-}
-
 .card {
 	@mixin card;
-}
-
-/*------------------------------------------------------------------------------------*/
-/* SPLIT CARD                                                                         */
-/*------------------------------------------------------------------------------------*/
-@define-mixin split_card {
-	@mixin card;
-
-	.main, .sub {
-		position: relative;
-		display: block;
-		width: 100%;
-		background-size: cover;
-		background-position: center;
-		background-repeat: no-repeat;
-		vertical-align: top;
-	}
-
-	@media $b_md {
-		display: table;
-
-		.main, .sub {
-			display: table-cell;
-			height: 100%;
-		}
-
-		.main {
-			width: 60%;
-		}
-
-		.sub {
-			width: 40%;
-		}
-	}
 }
 
 .split_card {
@@ -617,7 +569,7 @@ input[type=radio] {
 		background-position: center;
 		background-repeat: no-repeat;
 		transform: translate3d(-100%, 0, 0);
-		transition: transform ($t_animation * 2) ease-in-out;
+		transition: calc($t_animation * 2) ease-in-out;
 		
 		&.current {
 			transform: translate3d(0, 0, 0);
@@ -656,7 +608,7 @@ input[type=radio] {
 		text-align: center;
 		z-index: 2;
 		background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5));
-		transition: all ($t_animation * 2);
+		transition: all calc($t_animation * 2);
 
 		i, a {
 			display: inline-block;
@@ -699,7 +651,7 @@ input[type=radio] {
 	width: 100%;
 	height: 100%;
 	cursor: zoom-out;
-	z-index: ($z_popup - 1);
+	z-index: calc($z_popup - 1);
 	background: rgba(0, 0, 0, 0.8);
 	opacity: 1;
 	transition: opacity $t_animation;

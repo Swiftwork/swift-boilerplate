@@ -5,6 +5,7 @@
 /* Utilities */
 
 @import './vars.css';
+@import './mixins.css';
 @import './utils.css';
 
 /* Typeography */

@@ -30,7 +30,7 @@ $t_animation: 200ms;
 
 /* Font */
 $d_fs: 16px;
-$d_lh: 1.75; /* Sync value with postcss-lh lineHeight in config */
+$d_lh: 28px; /* Sync value with postcss-lh (lineHeight * 10) in config */
 
 /* Devices */
 $d_xs: 479px;

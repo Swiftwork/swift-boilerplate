@@ -1,17 +1,17 @@
 /* Default Variables */
-$simple-line-font-path		: 'font/';
-$simple-line-font-family	: 'Simple Line Icons';
+$simple-line-font-path		: font/;
+$simple-line-font-family	: Simple Line Icons;
 $simple-line-icon-prefix	: icon-;
 
 /*Fonts*/
 @font-face {
 	font-family: '$(simple-line-font-family)';
-	src:	url('$(simple-line-font-path)simple-line-icons.eot?v=2.2.2');
-	src:	url('$(simple-line-font-path)simple-line-icons.eot?#iefix&v=2.2.2') format('embedded-opentype'),
-				url('$(simple-line-font-path)simple-line-icons.ttf?v=2.2.2') format('truetype'),
-				url('$(simple-line-font-path)simple-line-icons.woff2?v=2.2.2') format('woff2'),
-				url('$(simple-line-font-path)simple-line-icons.woff?v=2.2.2') format('woff'),
-				url('$(simple-line-font-path)simple-line-icons.svg?v=2.2.2#simple-line-icons') format('svg');
+	src:	resolve('$(simple-line-font-path)simple-line-icons.eot');
+	src:	resolve('$(simple-line-font-path)simple-line-icons.eot?#iefix') format('embedded-opentype'),
+				resolve('$(simple-line-font-path)simple-line-icons.ttf') format('truetype'),
+				resolve('$(simple-line-font-path)simple-line-icons.woff2') format('woff2'),
+				resolve('$(simple-line-font-path)simple-line-icons.woff') format('woff'),
+				resolve('$(simple-line-font-path)simple-line-icons.svg#simple-line-icons') format('svg');
 	font-weight: normal;
 	font-style: normal;
 }

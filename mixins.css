@@ -11,7 +11,7 @@
 }
 
 @define-mixin text {
-	font-family: 'Lato', 'Microsoft Yahei', '微软雅黑', 'Hiragino Sans GB W3', 'STXihei', '华文细黑', 'SimHei', '黑体', 'Helvetica Neue', 'Verdana' sans-serif;
+	font-family: 'Lato', 'Microsoft Yahei', '微软雅黑', 'Hiragino Sans GB W3', 'STXihei', '华文细黑', 'SimHei', '黑体', 'Helvetica Neue', 'Verdana', sans-serif;
 	font-weight: 300;
 }
 

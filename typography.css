@@ -9,8 +9,8 @@ html {
 
 body {
 	@mixin text;
-	font-size: $d_fs;
-	line-height: $d_lh;
+	font-size: $d_fs; /* Chrome bug with rem so using px instead */
+	line-height: $d_lh; /* Chrome bug with rem so using px instead */
 	color: $c_dark_secondary;
 }
 

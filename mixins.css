@@ -68,7 +68,7 @@
 
 @define-mixin columns $count, $device {
 	@for @i from 1 to $count {
-		&[data-columns$(device)="@i"] {
+		&[data-columns$(device)="@i"] > * {
 			width: calc(100% / @i - 1vr);
 			flex: 1 1 calc(100% / @i - 1vr);
 		}	

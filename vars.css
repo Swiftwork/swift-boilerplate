@@ -33,10 +33,10 @@ $d_fs: 16px;
 $d_lh: 28px; /* Sync value with postcss-lh (lineHeight * 10) in config */
 
 /* Devices */
-$d_xs: 479px;
-$d_sm: 480px;
+$d_xs: 543px;
+$d_sm: 544px;
 $d_md: 768px;
-$d_lg: 960px;
+$d_lg: 992px;
 $d_xl: 1200px;
 $d_sm_max: calc($d_md - 1px);
 $d_md_max: calc($d_lg - 1px);

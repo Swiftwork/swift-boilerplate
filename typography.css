@@ -33,13 +33,34 @@ h6 { font-size: 1.8rem; }
 h1, h2, h3, h4, h5, h6, p, span, a, i, em, li, th, td, label, legend {
 	&.primary {
 		color: $c_color_primary !important;
+
+    &.inverted {
+      color: inherit !important;
+		  &:hover {
+        color: $c_color_primary !important;
+      }
+    }
 	}
 
 	&.secondary {
 		color: $c_color_secondary !important;
+
+    &.inverted {
+      color: inherit !important;
+		  &:hover {
+        color: $c_color_secondary !important;
+      }
+    }
 	}
 
 	&.dark {
 		color: $c_dark_primary !important;
+
+    &.inverted {
+      color: inherit !important;
+		  &:hover {
+        color: $c_dark_primary !important;
+      }
+    }
 	}
 }
